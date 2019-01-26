@@ -8,5 +8,5 @@ import java.util.Set;
 
 
 public interface CinemasRepository extends CrudRepository<Cinema, Long> {
-    String getCinemasByFilmsName(Set<Film> films);
+    Cinema getCinemaByFilms(Set<Film> films);
 }
