@@ -1,10 +1,11 @@
-package domain.cinematable.entrity;
+package code.domain.cinematable.entrity;
 
-import domain.cinematable.Film;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "cinemas")
@@ -12,13 +13,19 @@ public class Cinema {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    private Long id;
+    private Long cinema_id;
 
     private String cinemaName;
     private String cinemaAddress;
 
-    @ElementCollection(targetClass = Film.class,fetch = FetchType.EAGER)
-    private Set<Film> films;
+
+    public Cinema() {
+    }
+
+    public Cinema(String cinemaName, String cinemaAddress) {
+        this.cinemaName = cinemaName;
+        this.cinemaAddress = cinemaAddress;
+    }
 
     public String getCinemaName() {
         return cinemaName;
@@ -36,11 +43,5 @@ public class Cinema {
         this.cinemaAddress = cinemaAddress;
     }
 
-    public Set<Film> getFilms() {
-        return films;
-    }
 
-    public void setFilms(Set<Film> films) {
-        this.films = films;
-    }
 }

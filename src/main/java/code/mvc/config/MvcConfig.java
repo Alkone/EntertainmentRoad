@@ -1,4 +1,4 @@
-package mvc.config;
+package code.mvc.config;
 
 
 import org.springframework.context.annotation.Configuration;

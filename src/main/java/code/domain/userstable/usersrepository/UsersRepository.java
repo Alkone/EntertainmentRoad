@@ -1,6 +1,6 @@
-package domain.userstable.usersrepository;
+package code.domain.userstable.usersrepository;
 
-import domain.userstable.entity.User;
+import code.domain.userstable.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 
