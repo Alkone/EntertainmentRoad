@@ -1,4 +1,4 @@
-package domain.userstable.entity;
+package code.domain.userstable.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

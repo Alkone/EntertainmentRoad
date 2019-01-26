@@ -1,4 +1,4 @@
-package mvc.config;
+package code.mvc.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,6 +14,9 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+
+
+
     @Autowired
     @Qualifier("dataSource")
     private DataSource dataSource;
