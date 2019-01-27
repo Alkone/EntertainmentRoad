@@ -18,6 +18,7 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
+    private double balance;
 
     public User() {}
 
@@ -44,5 +45,13 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }
