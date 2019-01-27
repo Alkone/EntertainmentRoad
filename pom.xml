@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.javathone</groupId>
-    <artifactId>Entertainment Road</artifactId>
+    <artifactId>EntertainmentRoad</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
