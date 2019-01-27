@@ -1,12 +1,22 @@
 package code.mvc.controllers;
 
 import code.domain.cinematable.cinemasrepository.CinemaRepository;
+import code.domain.cinematable.entrity.Cinema;
+import code.domain.filmstable.filmsrepository.FilmRepository;
 import code.domain.userstable.entity.User;
 import code.domain.userstable.usersrepository.UsersRepository;
+import code.service.Packet;
+import code.service.StationParser;
+import code.transport.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import code.route.RoutesManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class PostController {
@@ -16,6 +26,12 @@ public class PostController {
 
     @Autowired
     private CinemaRepository cinemaRepository;
+
+    @Autowired
+    private FilmRepository filmRepository;
+
+    @Autowired
+    private RoutesManager manager;
 
     @PostMapping("/registration")
     public String addUser(User user){
@@ -32,12 +48,20 @@ public class PostController {
     }
 
     @PostMapping("add")
-    public String add(@RequestParam String name, @RequestParam String station){
+    public String add(@RequestParam String name, @RequestParam String station, Map<String, Object> model){
         if (name.isEmpty() || station.isEmpty()){
             return "main";
         }
-        System.out.println(name);
-        System.out.println(station);
+        List<Cinema> cinemas = new ArrayList<>();
+        cinemaRepository.findAll().forEach(cinema -> {
+            cinemas.add(cinema);
+        });
+        Station station1 = manager.getOptimalStation(StationParser.getStations(station),cinemas);
+        if (station1.getName().equals("Не найдено")){
+            return "main";
+        }
+        Cinema cinema = cinemaRepository.getCinemaByCinemaAddress(station1.getName()).get(0);
+        model.put("packet",new Packet(cinema.getCinemaName(),filmRepository.getFilmByName(name).getCost()));
         return "main";
     }
 }
