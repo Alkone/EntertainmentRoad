@@ -3,6 +3,8 @@
     <title>Welcom</title>
     <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="test.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
     <style>
         /* Basic Style */
         body {
@@ -116,32 +118,26 @@
         .logOut{
             padding-top: 1%;
         }
-
     </style>
 </head>
 <body>
-<form th:action="@{/logout}" method="post">
-    <div><input type="submit" value="Logout"/></div>
+<button class="logOut" type="submit">LogOut</button>
+<form th:action="add" method="post" class="add">
+    <p>
+        <label> Film:</label>
+        <input type="text" name="name" />
+    </p>
+
+    <p>
+        <label > Station: </label>
+        <input type="text" name="station" />
+    </p>
+
+    <p class="login-submit">
+        <button type="submit" class="add-button">Input</button>
+    </p>
+
 </form>
-<div class="container">
-    <p>
-        <label for="new-task">Film</label>
-    <form method="post"><input id="film" type="text"></form>
-    </p>
-
-    <p>
-        <label for="new-task">Add user</label>
-        <form method="post"><input id="new-task" type="text"></form>
-        <button onclick="addUser()">Add</button>
-    </p>
-
-    <h3>User</h3>
-    <ul id="incomplete-tasks">
-    </ul>
-    <button>
-        get
-    </button>
-</div>
 <script>
     var ListUser = document.getElementById("incomplete-tasks");
     var EnterFilm;
