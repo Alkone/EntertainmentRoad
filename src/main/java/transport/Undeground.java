@@ -30,6 +30,16 @@ public class Undeground implements ITransport {
         }
     }
 
+    //Remove station by id
+    public Station getStationById(int stationId) {
+        for (Station station : stationList) {
+            if (station.getId() == stationId) {
+                return station;
+            }
+        }
+        return null;
+    }
+
     //Возвращает id станции по имени
     public int getStationId(String name){
         for (Station station : stationList) {
