@@ -28,6 +28,7 @@ public class Dijkstras implements IRoutable {
         final Map<Integer, Vertex> previous = new HashMap<>();
         Map<Integer, List<Vertex>> vertices = graph.getVertices();
         PriorityQueue<Vertex> nodes = new PriorityQueue<>();
+        fastestTime = 0;
         fastestTimeSet = false;
 
         //Задаются стартовые веса
