@@ -1,5 +1,6 @@
 package code.mvc.controllers;
 
+import code.domain.cinematable.cinemasrepository.CinemaRepository;
 import code.domain.userstable.entity.User;
 import code.domain.userstable.usersrepository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ public class PostController {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private CinemaRepository cinemaRepository;
 
     @PostMapping("/registration")
     public String addUser(User user){
@@ -32,6 +36,8 @@ public class PostController {
         if (name.isEmpty() || station.isEmpty()){
             return "main";
         }
+        System.out.println(name);
+        System.out.println(station);
         return "main";
     }
 }
