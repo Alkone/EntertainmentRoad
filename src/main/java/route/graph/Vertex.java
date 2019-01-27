@@ -1,6 +1,6 @@
 package route.graph;
 
-public class Vertex implements Comparable<Vertex>{
+public class Vertex implements Comparable<route.graph.Vertex>{
 
     private Integer id;
     private Integer distance;
@@ -28,7 +28,7 @@ public class Vertex implements Comparable<Vertex>{
     }
 
     @Override
-    public int compareTo(Vertex o) {
+    public int compareTo(route.graph.Vertex o) {
         if (this.distance < o.distance)
             return -1;
         else if (this.distance > o.distance)
