@@ -12,5 +12,4 @@ import java.util.List;
 public interface FilmRepository extends CrudRepository<Film, Long>{
     Film getFilmByName(String name);
 
-
 }

@@ -120,24 +120,28 @@
         }
     </style>
 </head>
-<body>
-<button class="logOut" type="submit">LogOut</button>
+
+<body class="container">
+
 <form th:action="add" method="post" class="add">
     <p>
-        <label> Film:</label>
+        <label  for="new-task"> Film:</label>
         <input type="text" name="name" />
     </p>
 
     <p>
-        <label > Station: </label>
+        <label for="new-task"> Station: </label>
         <input type="text" name="station" />
-    </p>
-
-    <p class="login-submit">
         <button type="submit" class="add-button">Input</button>
     </p>
-
 </form>
+<form th:action="@{/logout}" method="post" class="logout">
+    <p>
+        <button class="logout" type="submit">LogOut</button>
+    </p>
+</form>
+
+
 <script>
     var ListUser = document.getElementById("incomplete-tasks");
     var EnterFilm;
