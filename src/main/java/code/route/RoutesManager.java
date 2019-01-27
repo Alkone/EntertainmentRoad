@@ -54,7 +54,7 @@ public class RoutesManager {
             }
             if(tmpDelay < minimalDelay){
                 minimalDelay = tmpDelay;
-                indexOfBestChoise = i;
+                indexOfBestChoise = undeground.getStationId((cinemasList).get(i).getCinemaAddress());
             }
         }
         return undeground.getStationById(indexOfBestChoise);

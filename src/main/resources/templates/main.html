@@ -138,6 +138,16 @@
     </p>
 
 </form>
+<table>
+    <tr th:each="d : ${packet}" >
+        <td th:text="${d.cinemaname}"></td>
+        <td th:text="${d.price}"></td>
+
+    </tr>
+</table>
+
+
+
 <script>
     var ListUser = document.getElementById("incomplete-tasks");
     var EnterFilm;

@@ -2,6 +2,7 @@ package code.mvc.controllers;
 
 import code.domain.cinematable.cinemasrepository.CinemaRepository;
 import code.domain.cinematable.entrity.Cinema;
+import code.domain.filmstable.entity.Film;
 import code.domain.filmstable.filmsrepository.FilmRepository;
 import code.domain.userstable.entity.User;
 import code.domain.userstable.usersrepository.UsersRepository;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import code.route.RoutesManager;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class PostController {
@@ -52,11 +51,13 @@ public class PostController {
         if (name.isEmpty() || station.isEmpty()){
             return "main";
         }
-        List<Cinema> cinemas = new ArrayList<>();
-        cinemaRepository.findAll().forEach(cinema -> {
-            cinemas.add(cinema);
+        Film film = filmRepository.getFilmByName(name);
+        Set<Cinema> cinemas = film.getCinemas();
+        List<Cinema> list = new ArrayList<>();
+        cinemas.forEach(cinema -> {
+            list.add(cinema);
         });
-        Station station1 = manager.getOptimalStation(StationParser.getStations(station),cinemas);
+        Station station1 = manager.getOptimalStation(StationParser.getStations(station),list);
         if (station1.getName().equals("Не найдено")){
             return "main";
         }
