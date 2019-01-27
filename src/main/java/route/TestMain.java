@@ -39,7 +39,7 @@ public class TestMain {
         for(int i=0; i<cinemasList.size(); i++){
             int tmpDelay = 0;
             for(int j=0; j<usersStationsList.size(); j++){
-                tmpDelay += Math.abs(timeList.get(j).get(i)-avrgTimeList.get(i));
+                tmpDelay += Math.abs(timeList.get(i).get(j)-avrgTimeList.get(i));
             }
             if(tmpDelay < minimalDelay){
                 minimalDelay = tmpDelay;
